@@ -12,9 +12,12 @@ module.exports = function (app) {
         var noticiasModel = app.app.models.noticiasModel;
         
         noticiasModel.getNoticias(connection, function (error, result) {
-            resp.render("noticias/noticias", { noticias: result });
+            //console.log(result);
+            //console.log(error);
+            resp.render("noticias/noticia", { noticias: result });
         });
 
     });
+    //funcionou
 
 };
