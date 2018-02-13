@@ -1,7 +1,7 @@
 module.exports = function () {
 
     this.getNoticia1 = function (connection, callback) {
-        connection.query('select * from noticias where id_noticia = 2', callback);
+        connection.query('select * from noticias where id_noticia = 1', callback);
     }
     //pegando dados do banco 
     this.getNoticias = function (connection, callback) {

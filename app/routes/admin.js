@@ -16,9 +16,7 @@ module.exports = function(app) {
         var noticiasModel = app.app.models.noticiasModel;//caminho da pagina numa variavel
 
          noticiasModel.salvarNoticia(noticia, connection, function (error, result) {//va no model e faça a funçao pra recuperar as noticia
-			console.log(result);
-			console.log(error);
-			resp.render("noticias/noticia", {noticia: result});//recunperar o modulo e acessar a função do arquivos noticiasModel
+			resp.render("noticias/noticias", {noticias: result});//recunperar o modulo e acessar a função do arquivos noticiasModel
          });
 	});
 };

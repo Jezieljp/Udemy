@@ -4,20 +4,16 @@
 // chamando a pagina noticia
 module.exports = function (app) {
     // execuntando a função dbConnection      
-    //var connection = dbConnection();       
+  
     app.get('/noticias', function (req, resp) {
-
-        //fazendo conexao com bancode dados  
         var connection = app.config.dbConnection();
-        var noticiasModel = app.app.models.noticiasModel;
-        
-        noticiasModel.getNoticias(connection, function (error, result) {
-            //console.log(result);
-            //console.log(error);
-            resp.render("noticias/noticia", { noticias: result });
+        //fazendo conexao com bancode dados  
+        connection.query('select * from noticias', function (error, result) {
+            
+            // var noticiasModel = app.app.models.noticiasModel;
+            //noticiasModel.getNoticias(connection, function (error, result) {
+
+            resp.render("noticias/noticias", { noticias: result });
         });
-
     });
-    //funcionou
-
 };
