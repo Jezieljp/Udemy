@@ -10,9 +10,9 @@ module.exports = function (app) {
         //fazendo conexao com bancode dados 
         //criando rota pra pegar paginas noticia 
         var connection = app.config.dbConnection();
-        var noticiasModel = app.app.models.noticiasModel;//caminho da pagina numa variavel
+        var noticiasModel = new app.app.models.NoticiasDados(connection);//caminho da pagina numa variavel
 
-        noticiasModel.getNoticia1(connection, function (error, result) {
+        noticiasModel.getNoticia1(function (error, result) {
             resp.render("noticias/noticia", { noticia: result });//recunperar o modulo e acessar a função do arquivos noticiasModel
         });
     });

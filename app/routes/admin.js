@@ -13,10 +13,10 @@ module.exports = function(app) {
 		   //fazendo conexao com bancode dados 
         //criando rota pra pegar paginas noticia 
         var connection = app.config.dbConnection();
-        var noticiasModel = app.app.models.noticiasModel;//caminho da pagina numa variavel
-
-         noticiasModel.salvarNoticia(noticia, connection, function (error, result) {//va no model e faça a funçao pra recuperar as noticia
-			resp.render("noticias/noticias", {noticias: result});//recunperar o modulo e acessar a função do arquivos noticiasModel
+        var noticiasModel = new app.app.models.NoticiasDados(connection);//caminho da pagina numa variavel
+		noticiasModel.salvarNoticia(noticia, function (error, result) {//va no model e faça a funçao pra recuperar as noticia
+			resp.redirect('/noticias');
+			//resp.render("noticias/noticias", {noticias: result});//recunperar o modulo e acessar a função do arquivos noticiasModel
          });
 	});
 };
