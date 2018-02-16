@@ -1,5 +1,4 @@
 //chamando a conexão com banco
-//var dbConnection = require('../../config/dbConnection');
 // criando rotas de noticias
 // chamando a pagina noticia
 module.exports = function (app) {
