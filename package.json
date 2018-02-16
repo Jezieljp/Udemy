@@ -13,9 +13,17 @@
     "consign": "^0.1.6",
     "ejs": "^2.5.7",
     "express": "^4.16.2",
-    "express-validator": "^5.0.0",
+    "express-validator": "^3.2.1",
     "mysql": "^2.15.0",
     "pryjs": "^1.0.3"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jezieljp/Udemy.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Jezieljp/Udemy/issues"
+  },
+  "homepage": "https://github.com/Jezieljp/Udemy#readme"
 }

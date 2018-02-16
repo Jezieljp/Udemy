@@ -12,7 +12,7 @@ NoticiasDados.prototype.getNoticias = function (callback) {
 }
  // Inserindo dados no banco de um form
  NoticiasDados.prototype.salvarNoticia = function(noticia, callback) {
-     console.log(noticia);
+    
     this._connection.query('insert into noticias set ?', noticia, callback)
 }
 

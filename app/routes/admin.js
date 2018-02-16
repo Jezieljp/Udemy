@@ -9,16 +9,16 @@ module.exports = function(app) {
 		var noticia = req.body;
 		
 		//Criando uma validacao para os campos do form
-		console.log(noticia);	
+	    
 		req.assert('titulo', 'Campo Obrigatorio').notEmpty();		
 		req.assert('resumo', 'Campo Obrigatorio').notEmpty();
 		req.assert('autor', 'Campo Obrigatorio').notEmpty();
 		//validando quantas letras pode no campo
 		req.assert('autor', 'Campo no minimo de 5 a 10 caracteres').len(5, 10);
-		req.assert('data_noticia', 'Campo Obrigatorio').notEmpty().isDate({format: 'dd-mm-yyyy'});
+		req.assert('data_noticia', 'Campo Obrigatorio').notEmpty().isDate({format: 'YYYY-MM-DD'});
 
-		var erros = req.validationErrors();
-
+		var erros = req.validationErrors();//getValidationResult();//validationErrors();
+		
 		if(erros){
 			resp.render("admin/form_add_noticia");
 			return;
