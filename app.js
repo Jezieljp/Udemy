@@ -12,5 +12,5 @@ var app = require('./config/server');
 //rotaFormulario(app);
 
 app.listen(3000, function(){
-	console.log('Servido ON');
+	console.log('SERVIDO FUNCIONANDO!!!');
 });

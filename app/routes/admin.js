@@ -2,7 +2,7 @@
 // chamando formulario
 module.exports = function(app) {
 	app.get('/formulario_inclusao_noticia', function(req, resp){	
-		resp.render("admin/form_add_noticia");
+		resp.render("admin/form_add_noticia", {validacao : {}});
 	});
 	//Recenbendo formulario POST com Body_parser Aula 38
 	app.post('/noticias/salvar', function(req, resp){
@@ -17,10 +17,11 @@ module.exports = function(app) {
 		req.assert('autor', 'Campo no minimo de 5 a 10 caracteres').len(5, 10);
 		req.assert('data_noticia', 'Campo Obrigatorio').notEmpty().isDate({format: 'YYYY-MM-DD'});
 
-		var erros = req.validationErrors();//getValidationResult();//validationErrors();
+		var erros = req.validationErrors();
 		
 		if(erros){
-			resp.render("admin/form_add_noticia");
+												//aula 45 Validacao
+			resp.render("admin/form_add_noticia", {validacao : erros});
 			return;
 		}
 			
