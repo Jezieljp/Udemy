@@ -6,14 +6,15 @@ module.exports = function (app) {
     // execuntando a função dbConnection      
   
     app.get('/noticias', function (req, resp) {
+        app.app.controllers.noticias.noticias(app, req, resp);
 
-        var connection = app.config.dbConnection();
-        var NoticiasDados = new app.app.models.NoticiasDados(connection);
-        //fazendo conexao com bancode dados  
-        //connection.query('select * from noticias', function (error, result) {            
-            
-            NoticiasDados.getNoticias(function (error, result) {
-            resp.render("noticias/noticias", { noticias: result });
-        });
+        
+    });
+
+     // execuntando a função dbConnection      
+    //var connection = dbConnection();       
+    app.get('/noticia', function (req, resp) {
+        app.app.controllers.noticias.noticia(app, req, resp);
+
     });
 };

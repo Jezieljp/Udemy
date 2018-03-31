@@ -12,6 +12,9 @@ app.set('view engine', 'ejs');
 // configurando os caminhos das views
 app.set('views', './app/views');
 
+// pegando nossas paginas html estaticas pega todas as pasta estaticas
+app.use(express.static('./app/public'));
+
 //executando body-parser
 app.use(bodyParser.urlencoded({ extended: true }));
 //chamado o express-validator aula 44 instando o express-validator
@@ -22,6 +25,7 @@ consign()
     .include('app/routes')
     .then('config/dbConnection.js')//fazendo conexao com banco de dados com consign
     .then('app/models')//pegando nosso models 
+    .then('app/controllers')
     .into(app);
 
 // retornando nossa variavel

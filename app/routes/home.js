@@ -2,6 +2,7 @@
 //criando as rotas dos module
 module.exports = function(app){
       app.get('/', function(req, resp){
-	resp.render("home/index");
+          app.app.controllers.home.index(app, req, resp);
+
     });
 };
