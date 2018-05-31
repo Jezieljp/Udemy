@@ -6,11 +6,8 @@ module.exports = function (app) {
     // execuntando a função dbConnection      
   
     app.get('/noticias', function (req, resp) {
-        app.app.controllers.noticias.noticias(app, req, resp);
-
-        
+        app.app.controllers.noticias.noticias(app, req, resp);       
     });
-
      // execuntando a função dbConnection      
     //var connection = dbConnection();       
     app.get('/noticia', function (req, resp) {

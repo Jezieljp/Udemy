@@ -1,5 +1,5 @@
 //criando uma função para que a variavel connection nao se repita dentro das função
-function NoticiasDados(connection){
+function NoticiasDados(connection) {
     this._connection = connection;
 }
 
@@ -10,13 +10,14 @@ NoticiasDados.prototype.getNoticia1 = function (callback) {
 NoticiasDados.prototype.getNoticias = function (callback) {
     this._connection.query('select * from noticias', callback);
 }
- // Inserindo dados no banco de um form
- NoticiasDados.prototype.salvarNoticia = function(noticia, callback) {
-    
+// Inserindo dados no banco de um form
+NoticiasDados.prototype.salvarNoticia = function (noticia, callback) {
     this._connection.query('insert into noticias set ?', noticia, callback)
 }
-
-module.exports = function () {   
-    
+// funcao para pegar ultimas noticias
+NoticiasDados.prototype.get5UltimasNoticias = function(callback){
+      this._connection.query('select * from noticias order by data_criacao desc limit 5', callback);
+ }
+module.exports = function () {
     return NoticiasDados;
 }

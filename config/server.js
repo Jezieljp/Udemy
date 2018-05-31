@@ -14,7 +14,6 @@ app.set('views', './app/views');
 
 // pegando nossas paginas html estaticas pega todas as pasta estaticas
 app.use(express.static('./app/public'));
-
 //executando body-parser
 app.use(bodyParser.urlencoded({ extended: true }));
 //chamado o express-validator aula 44 instando o express-validator
